@@ -1,8 +1,8 @@
 export interface Country{
     'name' : string;
     'capital' : string;
-    'gps' : {
+    /*'gps' : {
         lat : number,
         long : number
-    };
+    };*/
 }

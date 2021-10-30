@@ -33,24 +33,26 @@ export class DatatableComponent implements OnDestroy, OnInit {
   }
 
   ngOnDestroy(): void {
-    
-      this.dtTrigger.unsubscribe();
-    }
 
-  private getTenCountries(countries: any) {
-
-    this.tenCountries = [];
-    for (let i = 0; i < 10; i++) {
-      let random: any = Math.floor(Math.random() * countries.length);
-      this.tenCountries.push({ 'name': countries[random].name, 'capital': countries[random].capital, 'latlng': countries[random].latlng });
-    }
-    console.log(this.tenCountries);
+    this.dtTrigger.unsubscribe();
     
   }
 
-  clickButton(){
-    this.ngOnDestroy();
+
+  //Boton 'Actualizar'
+  refreshButton() {
     this.getCountries();
+  }
+
+  //Boton 'Ordenar por Nombre'
+  nameButton(): void{
+    let sortedList = [];
+    for (let i = 0; i < 10; i++) {
+    sortedList.push(this.tenCountries[i].name);         
+    }
+    console.log(sortedList);
+    sortedList.sort();
+    console.log(sortedList);
   }
 
   getCountries(): void {
@@ -60,7 +62,18 @@ export class DatatableComponent implements OnDestroy, OnInit {
     }
 
     );
-    
   }
+
+  private getTenCountries(countries: any) {
+
+    this.tenCountries = [];
+    for (let i = 0; i < 10; i++) {
+      let random: any = Math.floor(Math.random() * countries.length);
+      this.tenCountries.push({ 'name': countries[random].name, 'capital': countries[random].capital, 'latlng': countries[random].latlng });
+    }
+    console.log(this.tenCountries);
+
+  }
+
 
 }

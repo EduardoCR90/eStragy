@@ -7,8 +7,6 @@ import { Country } from '../model/Country'
 })
 export class DataService {
 
-  
-
   constructor(private httpClient: HttpClient) {
     console.log('Dataservice is working!');
   }
@@ -17,6 +15,7 @@ export class DataService {
       return this.httpClient.get('https://restcountries.com/v2/all');
    }
 
+   //traer array 10paises > pasarlo como params a checkdata > postdata usaria Country.creat (de controller)
    postData(){
     //funcion que guarda los datos en la bd (despues de ser filtrados por checkdata)
    }
