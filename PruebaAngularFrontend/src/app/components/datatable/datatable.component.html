@@ -1,19 +1,19 @@
 <div class="container mt-5 d-flex">
-  <div class='p-2'>
-    <button type="button" class="btn btn-outline-dark p-2" (click)="idButton()">Ordenar por ID</button>
-  </div>
-  <div class='p-2'>
-    <button type="button" class="btn btn-outline-dark p-2" (click)="nameButton()">Ordenar por nombre</button>
-  </div>
-  <div class='p-2'>
-    <button type="button" class="btn btn-outline-dark p-2" (click)='capitalButton()'>Ordenar por capital</button>
-  </div>
-  <div class='p-2'>
-    <button type="button" class="btn btn-outline-danger p-2" (click)="saveButton()">Guardar en BD</button>
-  </div>
-  <div class=' p-2'>
-    <button type="button" class="btn btn-outline-success p-2" (click)="refreshButton()">Actualizar</button>
-  </div>
+    <div class='p-2'>
+      <button type="button" class="btn btn-outline-dark p-2" (click)="idButton()">Ordenar por ID</button>
+    </div>
+    <div class='p-2'>
+      <button type="button" class="btn btn-outline-dark p-2" (click)="nameButton()">Ordenar por nombre</button>
+    </div>
+    <div class='p-2'>
+      <button type="button" class="btn btn-outline-dark p-2" (click)='capitalButton()'>Ordenar por capital</button>
+    </div>
+    <div class='p-2'>
+      <button type="button" class="btn btn-outline-danger p-2" (click)="saveButton()">Guardar en BD</button>
+    </div>
+    <div class=' p-2'>
+      <button type="button" class="btn btn-outline-success p-2" (click)="refreshButton()">Actualizar</button>
+    </div>
 </div>
 
 <div class="container mt-5">
@@ -24,7 +24,7 @@
         <th>ID</th>
         <th>Nombre</th>
         <th>Capital</th>
-        <!-- <th>GPS</th> -->
+        <th>Geolocalización</th>
       </tr>
     </thead>
     <tbody>
@@ -32,14 +32,15 @@
         <td>{{ country.id }}</td>
         <td>{{ country.name }}</td>
         <td>{{ country.capital }}</td>
-        <!-- <td>
-          <a href="{{'https://maps.google.com/?q=' + country.lat + ',' + country.lng}}">Ver en mapa</a>
-          <a href="https://maps.google.com/?q=33.939110,67.709953">Ver </a>
+        <td>
+          <a href="{{'https://maps.google.com/?q=' + country.lat + ',' + country.lng + '&zoom=1'}}" target="blank">
+          <img src="https://cdn-icons.flaticon.com/png/512/1823/premium/1823589.png?token=exp=1635770878~hmac=7d3df1b1f0e756a0e43232b69baa8621" width= '30px' alt="">
+          </a>
+          <!-- <a href="https://maps.google.com/?q=33.939110,67.709953">Ver </a> -->
 
-        </td> -->
+        </td>
       </tr>
     </tbody>
   </table>
 </div>
 <hr>
-

@@ -16,7 +16,7 @@ export class DatatableComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
+
     this.getCountries();
   }
 
@@ -32,8 +32,8 @@ export class DatatableComponent implements OnInit {
   }
 
   //Boton 'Ordenar por Nombre'
-  nameButton(): void{
-    this.tenCountries.sort((a:any, b:any) => {
+  nameButton(): void {
+    this.tenCountries.sort((a: any, b: any) => {
       if (a.name == b.name) {
         return 0;
       }
@@ -45,8 +45,8 @@ export class DatatableComponent implements OnInit {
   }
 
   //Boton 'Ordenar por capital'
-  capitalButton(): void{
-    this.tenCountries.sort((a:any, b:any) => {
+  capitalButton(): void {
+    this.tenCountries.sort((a: any, b: any) => {
       if (a.capital == b.capital) {
         return 0;
       }
@@ -58,8 +58,8 @@ export class DatatableComponent implements OnInit {
   }
 
   //Boton 'Ordenar por id'
-  idButton(): void{
-    this.tenCountries.sort((a:any, b:any) => {
+  idButton(): void {
+    this.tenCountries.sort((a: any, b: any) => {
       if (a.id == b.id) {
         return 0;
       }
@@ -78,13 +78,30 @@ export class DatatableComponent implements OnInit {
     );
   }
 
+  private normalCoords(latlng: number): number {
+    if (latlng % 1 == 0) {
+      latlng = latlng + 0.000001;
+      console.log(latlng)
+      return latlng;
+    } else {
+      return latlng;
+    }
+  }
+
   private getTenCountries(countries: any) {
 
     this.tenCountries = [];
     for (let i = 0; i < 10; i++) {
       let random: any = Math.floor(Math.random() * countries.length);
-      this.tenCountries.push({ 'id': countries[random].numericCode, 'name': countries[random].name, 'capital': countries[random].capital, 'lat': countries[random].latlng[0], 'lng': countries[random].latlng[1]   });
-      
+
+      this.tenCountries.push({
+        'id': countries[random].numericCode,
+        'name': countries[random].name,
+        'capital': countries[random].capital,
+        'lat': this.normalCoords(countries[random].latlng[0]),
+        'lng': this.normalCoords(countries[random].latlng[1])
+      });
+
     }
 
   }

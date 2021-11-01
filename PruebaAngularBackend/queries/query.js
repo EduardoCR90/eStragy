@@ -7,18 +7,16 @@ query.getData = () => {
         connection.connect((err) => {
             connection.query(sql, (error, results) => {
                 if (error) throw error;
-                //console.log(results);
                 resolve(results);
             });
         })
     })
 }
 
-//esta funcion guarda bien datos desde controller
 query.setData = (country) => {
     return new Promise((resolve, reject) => {
 
-        const sql = 'INSERT INTO `countriesdb` (id, name, capital) VALUES (?, ?, ?)'
+        const sql = 'INSERT INTO `countries` (id, name, capital) VALUES (?, ?, ?)'
         let data = [country.id, country.name, country.capital]
         connection.connect((err) => {
 
