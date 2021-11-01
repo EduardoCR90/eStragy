@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Country } from '../model/Country'
+import { environment } from '../../environments/environment'
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class DataService {
   }
 
   getData() {
-    return this.httpClient.get('https://restcountries.com/v2/all');
+    return this.httpClient.get(environment.API);
   }
 
 
@@ -31,7 +32,7 @@ export class DataService {
       redirect: 'follow'
     };
 
-    fetch("http://localhost:3000/api/savedCountries", requestOptions)
+    fetch(environment.SERVER, requestOptions)
       .then(response => response.text())
       .then(result => alert(result))
       .catch();
