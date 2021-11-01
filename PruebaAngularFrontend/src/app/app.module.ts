@@ -1,15 +1,19 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+
 
 import { HttpClientModule } from '@angular/common/http'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
 import { DatatableComponent } from './components/datatable/datatable.component';
 
-import { DataTablesModule } from "angular-datatables";
+import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
 
-import {DataService} from './services/data.service'
+import {DataService} from './services/data.service';
 
 @NgModule({
   declarations: [
@@ -19,8 +23,10 @@ import {DataService} from './services/data.service'
   imports: [
     BrowserModule,
     AppRoutingModule,
-    DataTablesModule,
-    HttpClientModule
+    MatTableModule,
+    MatSortModule,
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

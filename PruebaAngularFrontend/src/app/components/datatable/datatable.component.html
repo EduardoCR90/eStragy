@@ -1,0 +1,45 @@
+<div class="container mt-5 d-flex">
+  <div class='p-2'>
+    <button type="button" class="btn btn-outline-dark p-2" (click)="idButton()">Ordenar por ID</button>
+  </div>
+  <div class='p-2'>
+    <button type="button" class="btn btn-outline-dark p-2" (click)="nameButton()">Ordenar por nombre</button>
+  </div>
+  <div class='p-2'>
+    <button type="button" class="btn btn-outline-dark p-2" (click)='capitalButton()'>Ordenar por capital</button>
+  </div>
+  <div class='p-2'>
+    <button type="button" class="btn btn-outline-danger p-2" (click)="saveButton()">Guardar en BD</button>
+  </div>
+  <div class=' p-2'>
+    <button type="button" class="btn btn-outline-success p-2" (click)="refreshButton()">Actualizar</button>
+  </div>
+</div>
+
+<div class="container mt-5">
+
+  <table class="table table-striped table-bordered row-border hover">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Capital</th>
+        <!-- <th>GPS</th> -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let country of tenCountries">
+        <td>{{ country.id }}</td>
+        <td>{{ country.name }}</td>
+        <td>{{ country.capital }}</td>
+        <!-- <td>
+          <a href="{{'https://maps.google.com/?q=' + country.lat + ',' + country.lng}}">Ver en mapa</a>
+          <a href="https://maps.google.com/?q=33.939110,67.709953">Ver </a>
+
+        </td> -->
+      </tr>
+    </tbody>
+  </table>
+</div>
+<hr>
+
